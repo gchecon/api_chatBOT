@@ -16,7 +16,7 @@ class Query(BaseModel):
 @app.post("/query/")
 async def query_model(query: Query):
     try:
-        response = client.completions.create(model="gpt-3.5-turbo",  # Ou o identificador atual para a GPT-4-turbo
+        response = client.completions.create(model="gpt-3.5-turbo-16k",  # Ou o identificador atual para a GPT-4-turbo
         prompt=query.text,
         max_tokens=query.max_tokens,
         temperature=query.temperature)
