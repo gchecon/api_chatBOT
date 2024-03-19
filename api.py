@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from openai import OpenAI
@@ -5,7 +7,7 @@ from typing import List
 from dotenv import load_dotenv
 
 load_dotenv()
-client = OpenAI()
+client = OpenAI(organization=os.getenv('OPENAI_ORGANIZATION'))
 
 app = FastAPI()
 
